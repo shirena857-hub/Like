@@ -122,11 +122,11 @@ async def send_likes(uid, tokens):
 
 # ✅ نقطة النهاية
 @app.route('/like', methods=['GET'])
-def like_handler():
+def handle_requests():
     uid = request.args.get("uid")
-    if not uid:
-        return jsonify({"error": "Missing UID"}), 400
-
+    server_name = request.args.get("server_name", "").upper()
+    if not uid or not server_name:
+        return jsonify({"error": "UID and server_name are required"}), 400
     try:
         # جلب التوكنات
         tokens = asyncio.run(get_tokens_live())
