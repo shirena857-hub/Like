@@ -157,8 +157,8 @@ def handle_requests():
         return jsonify({
             "PlayerNickname": nickname,
             "UID": uid,
-            "LikesBefore": likes_before,
-            "LikesAfter": likes_after,
+            "LikesBeforeCommand": likes_before,
+            "LikesAfterCommand": likes_after,
             "LikesGivenByAPI": likes_after - likes_before,
             "SuccessfulRequests": success_count,
             "TotalRequests": len(tokens),
